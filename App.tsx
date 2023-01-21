@@ -5,7 +5,8 @@ import {
   Inter_600SemiBold,
   Inter_800ExtraBold,
 } from "@expo-google-fonts/inter";
-import { Loading } from "./src/components/loading";
+import { Home } from "./src/screens/Home";
+import { Loading } from "./src/components/Loading";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,6 +26,7 @@ export default function App() {
         barStyle="light-content"
         backgroundColor="trasparent"
       />
+      <Home />
     </>
   );
 }
