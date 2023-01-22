@@ -1,5 +1,5 @@
 import { TouchableOpacity } from "react-native";
-import { daySize } from "../../utils/size";
+import { daySize } from "../utils/size";
 
 export function HabitDay() {
   return (
