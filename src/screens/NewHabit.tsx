@@ -1,7 +1,15 @@
 import { useState } from "react";
-import { ScrollView, Text, TextInput, View } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Feather } from "@expo/vector-icons";
 import { Checkbox } from "../components/Checkbox";
 import { GoBack } from "../components/GoBack";
+import colors from "tailwindcss/colors";
 
 const availableWeekDays = [
   "Domingo",
@@ -27,7 +35,10 @@ export function NewHabit() {
   }
   return (
     <View className="flex-1 bg-background px-8 pt-16">
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         <GoBack />
         <Text className="mt-6 text-white font-extrabold text-3xl">
           Criar hábito
@@ -35,7 +46,11 @@ export function NewHabit() {
         <Text className="mt-6 text-white font-semibold text-base">
           Qual seu comprometimento?
         </Text>
-        <TextInput className="h-12 pl-4 rounded-lg mt-3 bg-zinc-800 text-white focus:border-2 focus:border-green-600" />
+        <TextInput
+          className="h-12 pl-4 rounded-lg mt-3 bg-zinc-800 text-white focus:border-2 focus:border-green-600"
+          placeholder="Exercícios, dormir bem, etc..."
+          placeholderTextColor={colors.zinc[400]}
+        />
         <Text className="text-white font-semibold mt-4 mb-3 text-base">
           Qual a recorrência?
         </Text>
@@ -47,6 +62,15 @@ export function NewHabit() {
             onPress={() => handleToggleWeekDays(index)}
           />
         ))}
+        <TouchableOpacity
+          className="w-full h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6"
+          activeOpacity={0.7}
+        >
+          <Feather name="check" size={20} color={colors.white} />
+          <Text className="font-semibold text-base text-white ml-2">
+            Confirmar
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
